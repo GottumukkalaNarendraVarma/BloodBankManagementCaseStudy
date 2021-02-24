@@ -1,0 +1,34 @@
+<h4>Donate blood</h4>
+
+<form (ngSubmit)="onSubmit()" #donatebloodform="ngForm" class="dform">
+    <div class="form-group">
+        <label for="timeOfTheDay">Time of the Day</label>
+        <input type="text" class="form-control" name="timeOfTheDay" required [(ngModel)]="donateBlood.timeOfTheDay"
+            name="timeOfTheDay" #timeOfTheDay="ngModel"
+            [class.is-invalid]="timeOfTheDay.invalid && timeOfTheDay.touched">
+        <small class="text-danger" [class.d-none]="timeOfTheDay.valid || timeOfTheDay.untouched"> Time of the Day is
+            required
+
+        </small>
+    </div>
+    <div class="form-group">
+        <label for="bloodGlucoseLevel">Blood glucose level</label>
+        <input type="text" class="form-control" name="bloodGlucoseLevel" required
+            [(ngModel)]="donateBlood.bloodGlucoseLevel" name="bloodGlucoseLevel" #bloodGlucoseLevel="ngModel"
+            [class.is-invalid]="bloodGlucoseLevel.invalid && bloodGlucoseLevel.touched">
+        <small class="text-danger" [class.d-none]="bloodGlucoseLevel.valid || bloodGlucoseLevel.untouched">Blood glucose
+            level is required
+
+        </small>
+    </div>
+    <div class="form-group">
+        <label for="notes">Notes</label>
+        <input type="text" class="form-control" name="notes" required [(ngModel)]="donateBlood.notes" name="notes"
+            #notes="ngModel" [class.is-invalid]="notes.invalid && notes.touched">
+        <small class="text-danger" [class.d-none]="notes.valid || notes.untouched">Notes is required
+
+        </small>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="donatebloodform.form.invalid">Submit</button>
+
+</form>

@@ -1,0 +1,38 @@
+<h3 style="text-align: center; color: lawngreen;">Your Request Details are</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Patient Name</th>
+            <th>Required Blood Group</th>
+            <th>City</th>
+            <th>Doctor's Name</th>
+            <th>Hospital Name and Address</th>
+            <th>Date of Requirement</th>
+            <th>Contact Name</th>
+            <th>Contact Number</th>
+            <th>Contact Email Id</th>
+            <th>Message</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{requests.patientName}}</td>
+            <td>{{requests.reqBloodGroup}}</td>
+            <td>{{requests.city}}</td>
+            <td>{{requests.doctorName}}</td>
+            <td>{{requests.hospitalName}}</td>
+            <td>{{requests.date}}</td>
+            <td>{{requests.contactName}}</td>
+            <td>{{requests.contactNumber}}</td>
+            <td>{{requests.contactEmail}}</td>
+            <td>{{requests.message}}</td>
+            <td>{{requests.status}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="navbar-nav">
+    <li><a routerLink="/loginrequestor" class="nav-link" style="text-align: center; color:navy;"
+            routerLinkActive="active">Click Here to Logout</a></li>
+</ul>

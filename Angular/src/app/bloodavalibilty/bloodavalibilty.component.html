@@ -1,0 +1,37 @@
+<div style="width: 300px;" class="uform">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="type">Blood Group</label>
+            <input type="text" class="form-control" id="bloodgroup" required [(ngModel)]="bloodgroup" name="bloodgroup">
+        </div>
+        <button type="submit" class="btn btn-primary ">Submit</button>
+    </form>
+</div>
+<br />
+<div class="card rounder-0">
+    <div class="uform">
+        <div [hidden]="!submitted">
+            <h2>Donors</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Donor Name</th>
+                        <th>Bloodgroup</th>
+                        <th>City</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let donor of donors">
+                        <td>{{donor.username}}</td>
+                        <td>{{donor.bloodgroup}}</td>
+                        <td>{{donor.city}}</td>
+                        <td>{{donor.email}}</td>
+                        <td>{{donor.phone}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

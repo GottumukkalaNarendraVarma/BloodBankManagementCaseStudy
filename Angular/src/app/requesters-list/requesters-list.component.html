@@ -1,0 +1,41 @@
+<h3 style="text-align: center;">List of Requests</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Requester Id</th>
+            <th>Patient Name</th>
+            <th>Required Blood Group</th>
+            <th>City</th>
+            <th>Doctor's Name</th>
+            <th>Hospital Name and Address</th>
+            <th>Date of Requirement</th>
+            <th>Contact Name</th>
+            <th>Contact Number</th>
+            <th>Contact Email Id</th>
+            <th>Message</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let request of requests | async | paginate: {itemsPerPage:count, currentPage:p}">
+            <td>{{request.requesterId}}</td>
+            <td>{{request.patientName}}</td>
+            <td>{{request.reqBloodGroup}}</td>
+            <td>{{request.city}}</td>
+            <td>{{request.doctorName}}</td>
+            <td>{{request.hospitalName}}</td>
+            <td>{{request.date}}</td>
+            <td>{{request.contactName}}</td>
+            <td>{{request.contactNumber}}</td>
+            <td>{{request.contactEmail}}</td>
+            <td>{{request.message}}</td>
+            <td>{{request.status}}</td>
+            <td><span class="button is-small btn-info" (click)="approveRequest(request)">Approve</span>
+                <span class="button is-small btn-info" (click)="rejectRequest(request)">Reject</span></td>
+        </tr>
+    </tbody>
+</table>
+<div class="text-right">
+    <pagination-controls (pageChange)="p =$event"></pagination-controls>
+</div>

@@ -1,0 +1,94 @@
+<h4>Create a New Request</h4>
+<div [hidden]="submitted" style="width:500px;" class="cform">
+
+    <form #requestBloodform="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="patientName">Patient Name</label>
+            <input type="text" class="form-control" id="patientName" required [(ngModel)]="requestBlood.patientName"
+                name="patientName" #patientName="ngModel"
+                [class.is-invalid]="patientName.invalid && patientName.touched">
+            <small class="text-danger" [class.d-none]="patientName.valid || patientName.untouched">Name is
+                required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="reqBloodGroup">Required Blood Group</label>
+            <input type="text" class="form-control" id="reqBloodGroup" required [(ngModel)]="requestBlood.reqBloodGroup"
+                name="reqBloodgroup" #reqBloodGroup="ngModel"
+                [class.is-invalid]="reqBloodGroup.invalid && reqBloodGroup.touched">
+            <small class="text-danger" [class.d-none]="reqBloodGroup.valid || reqBloodGroup.untouched">Blood group is
+                required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" required [(ngModel)]="requestBlood.city" name="city"
+                #city="ngModel" [class.is-invalid]="city.invalid && city.touched">
+            <small class="text-danger" [class.d-none]="city.valid || city.untouched">City is required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="doctorName">Doctor's Name</label>
+            <input type="text" class="form-control" id="doctorName" required [(ngModel)]="requestBlood.doctorName"
+                name="doctorName" #doctorName="ngModel" [class.is-invalid]="doctorName.invalid && doctorName.touched">
+            <small class="text-danger" [class.d-none]="doctorName.valid || doctorName.untouched">Doctor's Name is
+                Required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="hospitalName">Hospital Name and Address</label>
+            <input type="text" class="form-control" id="hospitalName" required [(ngModel)]="requestBlood.hospitalName"
+                name="hospitalName" #hospitalName="ngModel"
+                [class.is-invalid]="hospitalName.invalid && hospitalName.touched">
+            <small class="text-danger" [class.d-none]="hospitalName.valid || hospitalName.untouched">Hospital Name is
+                Required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="date">When</label>
+            <input type="date" class="form-control" id="date" required [(ngModel)]="requestBlood.date" name="date"
+                #date="ngModel" [class.is-invalid]="date.invalid && date.touched">
+            <small class="text-danger" [class.d-none]="date.valid || date.untouched">Date is Required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="contactName">Contact Name</label>
+            <input type="text" class="form-control" id="contactName" required [(ngModel)]="requestBlood.contactName"
+                name="contactName" #contactName="ngModel"
+                [class.is-invalid]="contactName.invalid && contactName.touched">
+            <small class="text-danger" [class.d-none]="contactName.valid || contactName.untouched">Contact Name is
+                Required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="contactNumber">Contact Number</label>
+            <input type="text" class="form-control" id="contactNumber" required [(ngModel)]="requestBlood.contactNumber"
+                name="contactNumber" #contactNumber="ngModel"
+                [class.is-invalid]="contactNumber.invalid && contactNumber.touched">
+            <small class="text-danger" [class.d-none]="contactNumber.valid || contactNumber.untouched">Contact Number is
+                Required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="contactEmail">Contact Email Id</label>
+            <input type="text" class="form-control" id="contactEmail" required [(ngModel)]="requestBlood.contactEmail"
+                name="contactEmail" #contactEmail="ngModel"
+                [class.is-invalid]="contactEmail.invalid && contactEmail.touched">
+            <small class="text-danger" [class.d-none]="contactEmail.valid || contactEmail.untouched">Contact Number is
+                Required</small>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="message">Message</label>
+            <input type="text" class="form-control" id="message" required [(ngModel)]="requestBlood.message"
+                name="message" #message="ngModel" [class.is-invalid]="message.invalid && message.touched">
+            <small class="text-danger" [class.d-none]="message.valid || message.untouched">Message is Required</small>
+        </div>
+
+
+        <button type="submit" class="btn btn-success" [disabled]="requestBloodform.form.invalid">Submit</button>
+
+    </form>
+</div>

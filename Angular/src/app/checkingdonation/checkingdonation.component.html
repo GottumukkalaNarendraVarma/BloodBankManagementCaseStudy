@@ -1,0 +1,26 @@
+<h3 style="text-align: center; color: lawngreen;">Your Donation Details are</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Time of the day</th>
+                <th>Blood Glucose Level</th>
+                <th>Notes</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{donate.donorId}}</td>
+                <td>{{donate.timeOfTheDay}}</td>
+                <td>{{donate.bloodGlucoseLevel}}</td>
+                <td>{{donate.notes}}</td>
+                <td>{{donate.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="navbar-nav">
+        <li><a routerLink="/logindonor" class="nav-link" style="text-align: center; color:navy;"
+                routerLinkActive="active">Click Here to Logout</a></li>
+    </ul>
+

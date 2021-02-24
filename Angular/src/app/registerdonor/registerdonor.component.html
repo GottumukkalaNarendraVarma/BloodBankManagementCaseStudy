@@ -1,0 +1,70 @@
+<div class="bg">
+    <h2>Registration For Donor</h2>
+    <div style="width:500 px;" class="cform">
+        <form (ngSubmit)="onsubmit()" #donorform="ngForm">
+            <div [hidden]="submitted" class="form-group">
+                <label for="username">Donar Name</label>
+                <input type="text" class="form-control" id="username" required [(ngModel)]="donor.username"
+                    name="username" #username="ngModel" [class.is-invalid]="username.invalid && username.touched">
+                <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is
+                    required</small> </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" class="form-control" #phone=ngModel name="phone" [(ngModel)]="donor.phone" required
+                    pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched">
+                <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+                    <small class="text-danger" [class.d-none]="phone.valid || phone.untouched" *ngIf="phone.errors.required">Phone number is required</small>
+                    <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be 10 digits</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" #email=ngModel name="email" [(ngModel)]="donor.email" required
+                    email>
+                <div *ngIf="!email?.valid &&(email?.dirty || email?.touched)">
+                    <div class="text-danger" *ngIf="email.errors.required">Email is required</div>
+                    <div class="text-danger" *ngIf="email.errors.email">Invalid email</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" value="MALE" [(ngModel)]="donor.gender"
+                        #gender="ngModel" required>
+                    <label class="form-check-label">Male</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" value="FEMALE" [(ngModel)]="donor.gender"
+                        #gender="ngModel" required>
+                    <label class="form-check-label">Female</label>
+                </div>
+                <div *ngIf="gender.invalid && gender.untouched" [class.d-none]="gender.valid || gender.untouched" class="text-danger">Gender is required</div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="text" class="form-control" id="age" required [(ngModel)]="donor.age" name="age"
+                        #age="ngModel" [class.is-invalid]="age.invalid && age.touched" pattern="(?:1[8-9]|[2-5][0-9]|6[0-5])$">
+                    <div *ngIf="age.errors && (age.invalid || age.touched)">
+                        <small class="text-danger" [class.d-none]="age.valid || age.untouched"*ngIf="age.errors.required">Age is required</small>
+                        <small class="text-danger" *ngIf="age.errors.pattern">Age sholud be between 18 to 65</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bloodgroup">Blood Group</label>
+                    <input type="text" class="form-control" id="bloodgroup" required [(ngModel)]="donor.bloodgroup"
+                        name="bloodgroup" #bloodgroup="ngModel"
+                        [class.is-invalid]="bloodgroup.invalid && bloodgroup.touched">
+                    <small class="text-danger" [class.d-none]="bloodgroup.valid || bloodgroup.untouched">Blood Group is
+                        required</small>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" required [(ngModel)]="donor.city" name="city"
+                        #city="ngModel" [class.is-invalid]="city.invalid && city.touched">
+                    <small class="text-danger" [class.d-none]="city.valid || city.untouched">City is
+                        required</small>
+                </div>
+                <button type="submit" class="btn btn-success" [disabled]="donorform.form.invalid">Register</button>
+            </div>
+        </form>
+    </div>
